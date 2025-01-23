@@ -11,5 +11,5 @@ public interface MemberService {
 
     void join(MemberJoinDTO memberJoinDTO)throws MidExistException ;
 
-    Member findByMemberId(String id) throws MidExistException;
+    Member findByMid(String id) throws MidExistException;
 }

@@ -7,10 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.cotelog.dto.BoardDTO;
 import org.zerock.cotelog.dto.PageRequestDTO;
@@ -18,6 +15,8 @@ import org.zerock.cotelog.dto.PageResponseDTO;
 import org.zerock.cotelog.service.BoardService;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/board")
@@ -66,4 +65,21 @@ public class BoardController {
 
         return ResponseEntity.ok(boardDTO);
     }
+
+    @ApiOperation(value = "Delete Board", notes = "DELETE 방식으로 보드 삭제")
+    @DeleteMapping("/remove")
+    public Map<String, Long> remove(BoardDTO boardDTO) {
+
+        Long bno  = boardDTO.getBno();
+        log.info("remove post.. " + bno);
+
+        Map<String, Long> resultMap = new HashMap<>();
+
+        resultMap.put("rno", bno);
+
+        return resultMap;
+
+    }
+
+
 }

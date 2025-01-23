@@ -34,7 +34,7 @@ public class MemberController {
         log.info("로그인 정보: " + memberJoinDTO);
 
         try {
-            Member member = memberService.findByMemberId(memberJoinDTO.getMid());
+            Member member = memberService.findByMid(memberJoinDTO.getMid());
 
             if (!passwordEncoder.matches(memberJoinDTO.getMpw(), member.getMpw())) {
                 return ResponseEntity.status(401).body("비밀번호가 일치하지 않습니다.");

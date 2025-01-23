@@ -46,7 +46,6 @@ public class RelpyServiceTests {
 
     }
 
-    //Test 확인해보기
     @Test
     public void testBoardReplies() {
 
@@ -69,14 +68,5 @@ public class RelpyServiceTests {
 
         PageResponseDTO<ReplyDTO> result = replyService.getListOfBoard(bno, pageRequestDTO);
 
-        result.getDtoList().forEach(replyDTO -> log.info(replyDTO));
-
-
-
-//        Pageable pageable = PageRequest.of(0, 10, Sort.by("rno").descending());
-//
-//        Page<Reply> result = replyRepository.listOfBoard(bno, pageable);
-//
-//        result.getContent().forEach(reply -> log.info(reply));
     }
 }
